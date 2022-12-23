@@ -48,7 +48,7 @@ func GetPodSlices(pods []*v1.Pod, replicas int, logger *log.Entry) [][]*v1.Pod {
 
 // CalculatePodSliceSize compare max pod index with desired replicas and return larger size
 func CalculatePodSliceSize(pods []*v1.Pod, replicas int) int {
-	size := 0
+	size := -1
 	for _, pod := range pods {
 		index, err := utillabels.ReplicaIndex(pod.Labels)
 		if err != nil {
