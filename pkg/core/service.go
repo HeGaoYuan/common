@@ -50,7 +50,7 @@ func GetServiceSlices(services []*v1.Service, replicas int, logger *log.Entry) [
 
 // CalculateServiceSliceSize compare max pod index with desired replicas and return larger size
 func CalculateServiceSliceSize(services []*v1.Service, replicas int) int {
-	size := 0
+	size := -1
 	for _, svc := range services {
 		index, err := utillabels.ReplicaIndex(svc.Labels)
 		if err != nil {
